@@ -103,6 +103,7 @@ MuscleHandle
 ExpressionEvaluator
 UnityEditor
 NumericFieldDraggerUtility
+GUID
 Profiler
 UnityEngine
 PhotoCaptureFileOutputFormat
@@ -204,6 +205,6 @@ ProgressBar
 DeltaSpeed
 IValueField<>
 TextValueField<>
-TextValueFieldTraits<,>
 BaseFieldMouseDragger
 FieldMouseDragger<>
+TextValueFieldTraits<,>

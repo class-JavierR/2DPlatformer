@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -29,7 +30,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     public void AddScore(int amount)
     {
         playerScore += amount;
@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
         playerHealth -= damage;
         if (playerHealth < 0) playerHealth = 0; {
         OnHealthChanged?.Invoke(playerHealth); }
-
         if (playerHealth <= 0) { 
             TriggerGameOver(); }
     }
@@ -55,5 +54,6 @@ public class GameManager : MonoBehaviour
         playerScore = 0;
         OnScoreChanged?.Invoke(playerScore);
         OnHealthChanged?.Invoke(playerHealth);
+        CoinPoolManager.Instance.ResetAllCoins();
     }
 }

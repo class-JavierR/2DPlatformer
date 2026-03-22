@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 12f;
      private Rigidbody2D rb;
     private bool isGrounded = false;
+    public static GameManager Instance;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.jumpSound);
         }
     }
     
@@ -44,12 +47,12 @@ public class PlayerController : MonoBehaviour
             isGrounded = false; }
         }
     //collision against the coins
-     void OnTriggerEnter2D(Collider2D other)
+     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Coin"))
+        if (collision.CompareTag("Coin"))
         {
-            GameManager.Instance.AddScore(10);
-            Destroy(other.gameObject);
+            GameManager.Instance?.AddScore(10);
+            CoinPoolManager.Instance?.ReturnCoin(collision.gameObject);
         }
     }
 }
