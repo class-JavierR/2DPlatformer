@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     public static event HealthChanged OnHealthChanged;
     public static event GameOver OnGameOver;
 
+    private float startTime;
+    private float completionTime;
+    private bool gameEnded = false;
+
     void Awake()
     {
         if (Instance == null)
@@ -29,6 +33,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    void Update()
+    {
+        if (gameEnded) return;
+        completionTime = Time.time - startTime;
     }
     public void AddScore(int amount)
     {
@@ -46,14 +55,32 @@ public class GameManager : MonoBehaviour
     }
     public void TriggerGameOver()
     {
+        gameEnded = true;
         OnGameOver?.Invoke();
     }
     public void ResetGame()
     {
+        startTime = Time.time;
+        gameEnded = false;
         playerHealth = 100;
         playerScore = 0;
         OnScoreChanged?.Invoke(playerScore);
         OnHealthChanged?.Invoke(playerHealth);
+        if (CoinPoolManager.Instance != null)
+    {
         CoinPoolManager.Instance.ResetAllCoins();
+    }
+    else
+    {
+        Debug.LogWarning("CoinPoolManager.Instance is null!");
+    }
+    }
+    public int GetScore()
+    {
+        return playerScore;
+    }
+    public float GetCompletionTime()
+    {
+        return completionTime;
     }
 }

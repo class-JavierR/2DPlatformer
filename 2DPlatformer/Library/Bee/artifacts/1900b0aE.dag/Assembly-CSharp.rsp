@@ -141,6 +141,10 @@
 -define:TEXTCORE_FONT_ENGINE_1_6_OR_NEWER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/Packages/SQLitePCLRaw.bundle_green.2.1.11/lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll"
+-r:"Assets/Packages/SQLitePCLRaw.core.2.1.11/lib/netstandard2.0/SQLitePCLRaw.core.dll"
+-r:"Assets/Packages/SQLitePCLRaw.provider.e_sqlite3.2.1.11/lib/netstandard2.0/SQLitePCLRaw.provider.e_sqlite3.dll"
+-r:"Assets/Packages/sqlite-net-pcl.1.10.196-beta/lib/netstandard2.0/SQLite-net.dll"
 -r:"D:/Unity Editor/6000.4.0f1/Editor/Data/Managed/UnityEngine/Unity.Scripting.dll"
 -r:"D:/Unity Editor/6000.4.0f1/Editor/Data/Managed/UnityEngine/UnityEditor.AccessibilityModule.dll"
 -r:"D:/Unity Editor/6000.4.0f1/Editor/Data/Managed/UnityEngine/UnityEditor.AdaptivePerformanceModule.dll"
@@ -481,10 +485,14 @@
 -analyzer:"D:/Unity Editor/6000.4.0f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"D:/Unity Editor/6000.4.0f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Scripts/AudioManager.cs"
+"Assets/Scripts/BackButton.cs"
 "Assets/Scripts/CoinPoolManager.cs"
+"Assets/Scripts/DatabaseManager.cs"
 "Assets/Scripts/EnemyPatrol.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/GameOverManager.cs"
+"Assets/Scripts/HighScoresButton.cs"
+"Assets/Scripts/HighScoresDisplay.cs"
 "Assets/Scripts/MenuManager.cs"
 "Assets/Scripts/ObjectPool.cs"
 "Assets/Scripts/PlayerController.cs"
